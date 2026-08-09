@@ -1,10 +1,323 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Мой сайт</title>
-  </head>
-  <body>
-    <h1>Привет, мир!</h1>
-    <p>Добро пожаловать на мой сайт.</p>
-  </body> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProgCentre — Photography & Photo Services</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafaf8;
+            color: #1e1e1e;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---- HEADER ---- */
+        header {
+            padding: 32px 0 20px;
+            border-bottom: 1px solid #e8e8e4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+        .logo span {
+            color: #b8860b;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            font-weight: 500;
+        }
+        nav a {
+            text-decoration: none;
+            color: #2d2d2d;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #b8860b;
+        }
+
+        /* ---- HERO ---- */
+        .hero {
+            padding: 64px 0 56px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: #b8860b;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #4a4a4a;
+            max-width: 640px;
+            margin: 0 auto 32px;
+        }
+        .btn {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.25s;
+        }
+        .btn:hover {
+            background: #b8860b;
+        }
+
+        /* ---- SERVICES ---- */
+        .services {
+            padding: 60px 0;
+            border-top: 1px solid #e8e8e4;
+        }
+        .services h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+        .card {
+            background: #ffffff;
+            padding: 32px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            border: 1px solid #f0efe8;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+        }
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .card p {
+            color: #5a5a5a;
+            font-size: 15px;
+        }
+
+        /* ---- ABOUT ---- */
+        .about {
+            padding: 60px 0;
+            border-top: 1px solid #e8e8e4;
+        }
+        .about h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .about p {
+            font-size: 17px;
+            color: #3a3a3a;
+            max-width: 720px;
+        }
+
+        /* ---- CONTACT ---- */
+        .contact {
+            padding: 60px 0;
+            border-top: 1px solid #e8e8e4;
+            background: #f7f7f4;
+        }
+        .contact h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+        .contact-item {
+            font-size: 17px;
+        }
+        .contact-item strong {
+            font-weight: 600;
+            display: block;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #7a7a7a;
+            margin-bottom: 2px;
+        }
+        .contact-item a {
+            color: #1a1a1a;
+            text-decoration: none;
+            border-bottom: 1px dotted #ccc;
+        }
+        .contact-item a:hover {
+            border-bottom-color: #b8860b;
+            color: #b8860b;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid #e8e8e4;
+            text-align: center;
+            font-size: 14px;
+            color: #6a6a6a;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .contact-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Prog<span>Centre</span></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Photography that <em>tells your story</em></h1>
+        <p>From portraits to events — we capture moments with precision, light, and heart. Based in the Philippines, serving clients worldwide.</p>
+        <a href="#" class="btn">Book a shoot</a>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services">
+        <h2>Our photo services</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="icon">📸</span>
+                <h3>Portrait & headshot</h3>
+                <p>Professional portraits for corporate, personal branding, and social media.</p>
+            </div>
+            <div class="card">
+                <span class="icon">🎬</span>
+                <h3>Event photography</h3>
+                <p>Weddings, birthdays, conferences — we document every key moment.</p>
+            </div>
+            <div class="card">
+                <span class="icon">🌿</span>
+                <h3>Product & commercial</h3>
+                <p>High‑quality product shots for e‑commerce, catalogs, and advertising.</p>
+            </div>
+            <div class="card">
+                <span class="icon">✈️</span>
+                <h3>Travel & lifestyle</h3>
+                <p>Authentic on‑location shoots that capture the spirit of your journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <h2>About ProgCentre</h2>
+        <p>
+            ProgCentre is a creative photo studio built by photographers, for people who value
+            authentic imagery. We blend technical skill with an eye for emotion — whether it’s a
+            single portrait or a full‑day event. Our team is based in the Philippines, and we’re
+            proud to work with clients across Asia and beyond.
+        </p>
+        <p style="margin-top: 12px;">
+            We believe every image should feel natural, timeless, and true to you.
+        </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+        <h2>Get in touch</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <strong>📍 Location</strong>
+                Philippines (we shoot worldwide)
+            </div>
+            <div class="contact-item">
+                <strong>📧 Email</strong>
+                <a href="mailto:vsa@pbprog.online">vsa@pbprog.online</a>
+            </div>
+            <div class="contact-item">
+                <strong>📞 Phone</strong>
+                <a href="tel:+639123456789">+63 912 3456 789</a>
+            </div>
+            <div class="contact-item">
+                <strong>🌐 Social</strong>
+                <a href="#">Instagram</a> · <a href="#">Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 ProgCentre — Photography &amp; Photo Services.
+    </footer>
+
+</div>
+
+</body>
 </html>
